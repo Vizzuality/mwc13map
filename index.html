@@ -4,21 +4,36 @@
   <head>
     <meta charset="utf-8">
     <title>GSMA Mobile World Congress Company map</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Create dynamic maps, analyze and build location aware and geospatial applications with your data using the power using the power of PostGIS in the cloud.">
+    <meta name="keywords" content="postgresql, postgis, mapping, data, visualization, geospatial, geocoding, dynamic, mapping, geo, spatial">
+    <meta name="distribution" content="global">
+    <meta name="author" content="Vizzuality">
+    <meta name="robots" content="index">
+    <meta name="DC.title" content="CartoDB">
+    <meta name="geo.region" content="USA">
+    <meta name="geo.placename" content="New York">
+    <meta name="geo.position" content="40.7143528,-74.0059731">
+    <meta name="ICBM" content="40.7143528,-74.0059731">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="og:url" content="http://cartodb.com">
+    <meta name="og:site_name" content="CartoDB">
+    <meta name="og:title" content="CartoDB">
+    <meta name="og:description" content="Map, analyze and build applications with your data">
+    <meta name="og:type" content="website">
+    <meta name="og:image" content="http://cartodb.com/assets/layout/tour6-78fa524b02296c4d117a6af873923eec.jpg">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="http://cartodb.com/assets/favicon-ae2eb03b7b7d0ed4b99861863447978d.ico" />
     <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v2/themes/css/cartodb.css" />
     <link rel="stylesheet" href="stylesheets/style.css">
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="http://libs.cartocdn.com/cartodb.js/v2/cartodb.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
   </head>
 
   <body>
-    <div class="map" id="map">
-    </div>
+    <div class="map" id="map"></div>
 
-    <div class="defaultLogo">
-    </div>
+    <div class="defaultLogo"></div>
 
     <div id="filterBtn">
       <a>Filter companies</a>
@@ -51,6 +66,7 @@
         <div class="content">
           <h3>Filter your map</h3>
           <p>I'm interested in</br>companies</p>
+          <input type="text" value=""/>
         </div>
       </div>
     </div>

@@ -1,3 +1,9 @@
+body {
+  width:100%;
+  height:100%;
+  overflow:hidden;
+}
+
 .map{
   position: absolute;
   top: 0;
@@ -24,7 +30,7 @@
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255,255,255,0.8);
+  background:url('../assets/img/white_bkg.png') repeat 0 0;
   text-align: center;
   z-index: 3;
 }
@@ -78,12 +84,14 @@
 #filterBtn{
   position: absolute;
   right: 40px;
-  top: 100px;
+  top: 40px;
   z-index: 2;
   display: none;
 }
 
 #filterBtn a, #filterBtn a:visited{
+  position:relative;
+  display:block;
   font-family: Helvetica, Arial, Sans-serif;
   font-size: 13px;
   font-weight: bold;
@@ -132,7 +140,7 @@
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255,255,255,0.8);
+  background:url('../assets/img/white_bkg.png') repeat 0 0;
   text-align: center;
   z-index: 3;
 }
@@ -143,7 +151,9 @@
   height: 70px;
 }
 
+
 #filterCover .wrapper .content{
+  position:relative;
   font-family: Helvetica, Arial, Sans-serif;
   font-size: 55px;
   font-weight: bold;
@@ -157,6 +167,7 @@
   font-size: 55px;
   font-weight: bold;
   letter-spacing: -1px;
+  color:#999;
   color: rgba(0,0,0,0.3);
   text-align: left; 
   margin: 0;
@@ -164,5 +175,52 @@
 }
 
 #filterCover .wrapper .content p{
+  width:420px;
   margin: 5px 0 0 0;
+  line-height:55px;
+}
+
+#filterCover input {
+  position:absolute;
+  left:420px;
+  top:62px;
+  width:474px;
+  padding:0;
+  font:bold 55px Helvetica,Arial, Sans-serif;
+  letter-spacing: -1px;
+  border:none;
+  color:#333;
+  border-bottom:3px solid #333333;
+  background:none;
+}
+
+#filterCover input:focus {
+  outline:none;
+}
+
+.ui-autocomplete {
+  width:474px;
+  padding:0;
+}
+
+.ui-autocomplete li {
+  list-style:none;
+  display:block;
+}
+
+.ui-autocomplete li a {
+  font:bold 55px Helvetica,Arial, Sans-serif;
+  letter-spacing: -1px;
+  color:#FF4C4C;
+}
+
+.ui-autocomplete li a.ui-state-focus,
+.ui-autocomplete li a.ui-state-hover {
+  text-decoration:underline;
+  color:#333;
+  cursor:pointer;
+}
+
+span.ui-helper-hidden-accessible {
+  display:none!important;
 }

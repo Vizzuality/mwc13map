@@ -1,4 +1,7 @@
 
+
+var companies = ["all", "data analysis", "data visualization", "voIP", "hardware", "network", "consultancy"];
+
 init();
 
 function init(){
@@ -9,11 +12,15 @@ function init(){
   $('#initialCover').bind('click',function(){
     hide(this)
   })
-  $('#filterCover').bind('click',function(){
-    hide(this);
+  $('#filterCover').bind('click',function(e){
+    if (!$(e.target).is("a,input"))
+      hide(this)
   })
   $('#filterBtn a').bind('click',function(){
     show("#filterCover");
+    $("#filterCover input")
+      .focus()
+      .autocomplete("search","")
   })
   $('.defaultLogo').bind('click',function(){
     show("#initialCover");
@@ -21,6 +28,9 @@ function init(){
   $('#bottomBtns .about').bind('click',function(){
     show("#initialCover");
   })
+
+  initAutocomplete();
+
   $(window).resize(function(){
     var pre;
     if($("#filterCover").is(":visible")){
@@ -33,6 +43,18 @@ function init(){
     var calc = (($(this).height() - $(pre+" .wrapper").height())/2)-30;
     $(pre+" .wrapper").css('margin-top',calc)
   });
+}
+
+function initAutocomplete() {
+  var $input = $("#filterCover").find('input[type="text"]');
+  $input.autocomplete({
+    source: companies,
+    minLength: 0,
+    select: function( event, ui ) {
+      alert(ui.item.label);
+    }
+  });
+  
 }
 
 function hide(o){
