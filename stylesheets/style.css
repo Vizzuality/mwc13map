@@ -70,6 +70,11 @@
   margin: 25px 0 0 0;
 }
 
+#initialCover .wrapper .content p a,
+#initialCover .wrapper .content p a:visited{
+  color: #333;
+}
+
 #filterBtn{
   position: absolute;
   right: 40px;
