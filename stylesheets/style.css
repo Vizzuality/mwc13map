@@ -6,6 +6,18 @@
   height: 100%;
 }
 
+.defaultLogo{
+  display: block;
+  width: 152px;
+  height: 50px;
+  background: transparent url(../assets/img/logo.png) no-repeat;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  display: none;
+  cursor: pointer;
+}
+
 #initialCover{
   position: absolute;
   left: 0;
@@ -18,7 +30,7 @@
 }
 
 .wrapper{
-  margin: 0 auto 0 auto;
+  margin: 100px auto 0 auto;
   display: block;
   width: 1000px;
   padding: 0;
@@ -28,7 +40,6 @@
   display: block;
   width: 1000px;
   height: 100px;
-  margin: 100px 0 0 0;
 }
 
 .logo{
@@ -48,7 +59,7 @@
 
 #initialCover .wrapper .content{
   font-family: Helvetica, Arial, Sans-serif;
-  font-size: 37px;
+  font-size: 47px;
   font-weight: bold;
   letter-spacing: -1px;
   color: #333;
@@ -125,7 +136,6 @@
   display: block;
   width: 1000px;
   height: 100px;
-  margin: 100px 0 0 0;
 }
 
 #filterCover .wrapper .content{
@@ -145,7 +155,7 @@
   color: rgba(0,0,0,0.3);
   text-align: left; 
   margin: 0;
-  margin: 80px 0 0 0;
+  margin: 30px 0 0 0;
 }
 
 #filterCover .wrapper .content p{
