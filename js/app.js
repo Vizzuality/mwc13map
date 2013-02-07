@@ -144,7 +144,7 @@ function initAutocomplete() {
     source: categories,
     minLength: 0,
     select: function( event, ui ) {
-      filterMap(ui.item.value);
+      filterMap(ui.item);
       var self = this;
       setTimeout(function(){
         if (ui.item.label.length > 20) {
@@ -167,12 +167,14 @@ function getSectors(){
 }
 
 function filterMap(s){
-  if(s==0){
+  if(s.value==0){
     q = "SELECT * FROM mwc_companies";  
   }else{
-    q = "SELECT c.* FROM mwc_companies as c INNER JOIN mwc_companies_sectors as cs ON c.cartodb_id=cs.company_id WHERE cs.sector_id = "+s;
+    q = "SELECT c.* FROM mwc_companies as c INNER JOIN mwc_companies_sectors as cs ON c.cartodb_id=cs.company_id WHERE cs.sector_id = "+s.value;
   }
   layer.setQuery(q);
+  $('#filterText').text("Filter companies ("+s.label +"|| "+s.num+")");
+  hide($('#filterCover'));
 }
 
 function getDownload(){
