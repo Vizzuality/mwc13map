@@ -18,8 +18,8 @@ body {
   height: 50px;
   background: transparent url(../assets/img/logo.png) no-repeat;
   position: absolute;
-  top: 50px;
-  left: 50px;
+  top: 60px;
+  left: 90px;
   display: none;
   cursor: pointer;
 }
