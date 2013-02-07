@@ -8,7 +8,93 @@ init();
 getSectors();
 
 function init(){
-  cartodb.createVis('map', 'http://saleiva.cartodb.com/api/v1/viz/19287/viz.json')
+  cartodb.createVis('map', 
+  
+  {
+    "version": "0.1.0",
+    "updated_at": "2013-02-07T14:12:10+01:00",
+    "layers": [{
+      "options": {
+        "visible": true,
+        "type": "Tiled",
+        "name": "Nokia Day",
+        "className": "httpsmapsnlpnokiacommaptilervmaptilenewestnormaldayzxypnglgengtokenYWYROufLufylEvnQappidqIWDkliFCtLntLmaeO",
+        "base_type": "nokia_day",
+        "urlTemplate": "https://maps.nlp.nokia.com/maptiler/v2/maptile/newest/normal.day/{z}/{x}/{y}/256/png8?lg=eng&token=61YWYROufLu_f8ylE0vn0Q&app_id=qIWDkliFCtLntLma2e6O",
+        "read_only": true,
+        "maxZoom": 21,
+        "attribution": "\u00a92012 Nokia <a href='http://here.net/services/terms' target='_blank'>Terms of use</a>",
+        "order": 0,
+        "id": 21672
+      },
+      "kind": "tiled",
+      "infowindow": null,
+      "id": 21672,
+      "order": 0
+    }, {
+      "options": {
+        "type": "CartoDB",
+        "active": true,
+        "opacity": 0.99,
+        "auto_bound": false,
+        "interactivity": "cartodb_id",
+        "debug": false,
+        "tiler_domain": "cartodb.com",
+        "tiler_port": "443",
+        "tiler_protocol": "https",
+        "sql_domain": "cartodb.com",
+        "sql_port": "443",
+        "sql_protocol": "https",
+        "extra_params": {
+          "cache_policy": "persist",
+          "cache_buster": 1360236531041
+        },
+        "cdn_url": "",
+        "visible": true,
+        "style_version": "2.1.1",
+        "table_name": "mwc_companies",
+        "user_name": "saleiva",
+        "query_wrapper": null
+      },
+      "kind": "carto",
+      "infowindow": {
+        "fields": [{
+          "name": "name",
+          "title": true,
+          "position": 0
+        }, {
+          "name": "contact_www",
+          "title": false,
+          "position": 1
+        }, {
+          "name": "contact_email",
+          "title": true,
+          "position": 2
+        }],
+        "template_name": "table/views/infowindow_light_header_orange",
+        "template": "<div class=\"cartodb-popup header orange\">\n  <a href=\"#close\" class=\"cartodb-popup-close-button close\">x</a>\n  <div class=\"cartodb-popup-header\">\n    {{#content.fields}}\n      {{^index}}\n        {{#title}}<h4>{{title}}</h4>{{/title}}\n        {{#value}}\n          <h1>{{ value }}</h1>\n        {{/value}}\n        {{^value}}\n          <h1 class=\"empty\">null</h1>\n        {{/value}}\n        <span class=\"separator\"></span>      \n      {{/index}}\n    {{/content.fields}}\n  </div>\n  <div class=\"cartodb-popup-content-wrapper\">\n    <div class=\"cartodb-popup-content\">\n      {{#content.fields}}\n        {{#index}}\n          {{#title}}<h4>{{title}}</h4>{{/title}}\n          {{#value}}\n            <p>{{ value }}</p>\n          {{/value}}\n          {{^value}}\n            <p class=\"empty\">null</p>\n          {{/value}}\n        {{/index}}\n      {{/content.fields}}\n    </div>\n  </div>\n  <div class=\"cartodb-popup-tip-container\">\n  </div>\n</div>"
+      },
+      "id": 21673,
+      "order": 1
+    }],
+    "overlays": [{
+      "type": "zoom",
+      "template": "<a class=\"zoom_in\">+</a><a class=\"zoom_out\">-</a>"
+    }, {
+      "type": "loader",
+      "template": "<div class=\"loader\"></div>"
+    }],
+    "description": null,
+    "title": "mwc_companies",
+    "url": "http://saleiva.cartodb.com/tables/19287",
+    "map_provider": "leaflet",
+    "center": "[41.89019212449888, -8.26171875]",
+    "zoom": 2
+  }
+  
+  
+  
+  )
   .done(function(vis, layers){
     layer = layers[1];
     $('#zoom').fadeOut();
@@ -69,13 +155,13 @@ function initAutocomplete() {
 
 function getSectors(){
   $.ajax({
-    url: "http://saleiva.cartodb.com/api/v2/sql?q=SELECT%20*%20FROM%20sectors_mwc%20ORDER%20BY%20numof"
+    url: "http://saleiva.cartodb.com/api/v2/sql?q=SELECT%20*%20FROM%20sectors_mwc%20ORDER%20BY%20numof DESC"
   }).done(function(data) {
     data = data.rows;
     $.each(data, function(index,value){
       categories.push(value.name)
     })
-    console.log(categories);
+    //console.log(categories);
   });
 }
 
