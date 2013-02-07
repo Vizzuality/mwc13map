@@ -155,7 +155,7 @@ body {
 #filterCover .wrapper .content{
   position:relative;
   font-family: Helvetica, Arial, Sans-serif;
-  font-size: 55px;
+  font-size: 49px;
   font-weight: bold;
   letter-spacing: -1px;
   color: #333;
@@ -164,7 +164,7 @@ body {
 
 #filterCover h3{
   font-family: Helvetica, Arial, Sans-serif;
-  font-size: 55px;
+  font-size: 49px;
   font-weight: bold;
   letter-spacing: -1px;
   color:#999;
@@ -182,11 +182,11 @@ body {
 
 #filterCover input {
   position:absolute;
-  left:420px;
-  top:62px;
-  width:474px;
+  left:370px;
+  top:58px;
+  width:570px;
   padding:0;
-  font:bold 55px Helvetica,Arial, Sans-serif;
+  font:bold 49px Helvetica,Arial, Sans-serif;
   letter-spacing: -1px;
   border:none;
   color:#333;
@@ -209,7 +209,7 @@ body {
 }
 
 .ui-autocomplete li a {
-  font:bold 55px Helvetica,Arial, Sans-serif;
+  font:bold 49px Helvetica,Arial, Sans-serif;
   letter-spacing: -1px;
   color:#FF4C4C;
 }

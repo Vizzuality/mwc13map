@@ -1,12 +1,16 @@
 
 
-var companies = ["all", "data analysis", "data visualization", "voIP", "hardware", "network", "consultancy"];
+var categories = ["All"];
+var layer;
+var query;
 
 init();
+getSectors();
 
 function init(){
   cartodb.createVis('map', 'http://saleiva.cartodb.com/api/v1/viz/19287/viz.json')
-  .done(function(){
+  .done(function(vis, layers){
+    layer = layers[1];
     $('#zoom').fadeOut();
   })
   $('#initialCover').bind('click',function(){
@@ -25,11 +29,12 @@ function init(){
   $('.defaultLogo').bind('click',function(){
     show("#initialCover");
   })
-  $('#bottomBtns .about').bind('click',function(){
-    show("#initialCover");
+  $('#bottomBtns .downloadBtn').bind('click',function(){
+    getDownload();
   })
 
-  initAutocomplete();
+
+  initAutocomplete(); 
 
   $(window).resize(function(){
     var pre;
@@ -48,13 +53,37 @@ function init(){
 function initAutocomplete() {
   var $input = $("#filterCover").find('input[type="text"]');
   $input.autocomplete({
-    source: companies,
+    source: categories,
     minLength: 0,
     select: function( event, ui ) {
-      alert(ui.item.label);
+      filterMap(ui.item.label);
     }
+  }); 
+}
+
+function getSectors(){
+  $.ajax({
+    url: "http://saleiva.cartodb.com/api/v2/sql?q=SELECT%20*%20FROM%20sectors_mwc%20ORDER%20BY%20numof"
+  }).done(function(data) {
+    data = data.rows;
+    $.each(data, function(index,value){
+      categories.push(value.name)
+    })
+    console.log(categories);
   });
-  
+}
+
+function filterMap(s){
+  if(s=="All"){
+    q = "SELECT * FROM mwc_companies";  
+  }else{
+    q = "SELECT * FROM mwc_companies WHERE subcategories_array ilike '%"+s+"%'";
+  }
+  layer.setQuery(q);
+}
+
+function getDownload(){
+  window.location.href = encodeURI("http://saleiva.cartodb.com/api/v2/sql?q="+q+"&format=csv");
 }
 
 function hide(o){
