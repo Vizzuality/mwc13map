@@ -1,6 +1,6 @@
 
 
-var categories = ["All"];
+var categories = [{label:"All",value:0,num:1736}];
 var layer;
 var query;
 
@@ -142,7 +142,7 @@ function initAutocomplete() {
     source: categories,
     minLength: 0,
     select: function( event, ui ) {
-      filterMap(ui.item.label);
+      filterMap(ui.item.value);
       var self = this;
       setTimeout(function(){
         if (ui.item.label.length > 20) {
@@ -155,21 +155,21 @@ function initAutocomplete() {
 
 function getSectors(){
   $.ajax({
-    url: "http://saleiva.cartodb.com/api/v2/sql?q=SELECT%20*%20FROM%20sectors_mwc%20ORDER%20BY%20numof DESC"
+    url: "http://saleiva.cartodb.com/api/v2/sql?q="+escape("SELECT * FROM sectors ORDER BY num_companies DESC")
   }).done(function(data) {
     data = data.rows;
     $.each(data, function(index,value){
-      categories.push(value.name)
+      categories.push({label:value.sector,value:value.cartodb_id,num:value.num_companies})
     })
     //console.log(categories);
   });
 }
 
 function filterMap(s){
-  if(s=="All"){
+  if(s==0){
     q = "SELECT * FROM mwc_companies";  
   }else{
-    q = "SELECT * FROM mwc_companies WHERE subcategories_array ilike '%"+s+"%'";
+    q = "SELECT c.* FROM mwc_companies as c INNER JOIN mwc_companies_sectors as cs ON c.cartodb_id=cs.company_id WHERE cs.sector_id = "+s;
   }
   layer.setQuery(q);
 }
