@@ -147,10 +147,12 @@ function initAutocomplete() {
       filterMap(ui.item);
       var self = this;
       setTimeout(function(){
-        if (ui.item.label.length > 20) {
+        if(ui.item.label.length > 20) {
           $(self).val(ui.item.label.substr(0,19) + "...");
+        }else{
+          $(self).val(ui.item.label);
         }
-      },0)
+      },10)
     }
   }); 
 }
