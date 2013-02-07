@@ -75,7 +75,6 @@ function getSectors(){
     $.each(data, function(index,value){
       categories.push(value.name)
     })
-    console.log(categories);
   });
 }
 
