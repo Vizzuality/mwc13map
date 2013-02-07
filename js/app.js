@@ -57,6 +57,12 @@ function initAutocomplete() {
     minLength: 0,
     select: function( event, ui ) {
       filterMap(ui.item.label);
+      var self = this;
+      setTimeout(function(){
+        if (ui.item.label.length > 20) {
+          $(self).val(ui.item.label.substr(0,19) + "...");
+        }
+      },0)
     }
   }); 
 }
