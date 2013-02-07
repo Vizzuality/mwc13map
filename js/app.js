@@ -3,6 +3,7 @@
 var categories = ["All"];
 var layer;
 var query;
+var mar;
 
 init();
 getSectors();
@@ -92,11 +93,13 @@ function init(){
     "zoom": 2
   }
   
-  
-  
   )
   .done(function(vis, layers){
     layer = layers[1];
+    $('#zoom').css('top',36);
+    $('#zoom').css('left',20);
+    $('.loader').css('left',-10);
+    $('.loader').css('top',100);
     $('#zoom').fadeOut();
   })
   $('#initialCover').bind('click',function(){
@@ -119,7 +122,6 @@ function init(){
     getDownload();
   })
 
-
   initAutocomplete(); 
 
   $(window).resize(function(){
@@ -131,7 +133,7 @@ function init(){
     }else{
       return;
     }
-    var calc = (($(this).height() - $(pre+" .wrapper").height())/2)-30;
+    var calc = (($(this).height() - $(pre+" .wrapper").height())/2)-mar;
     $(pre+" .wrapper").css('margin-top',calc)
   });
 }
@@ -161,7 +163,6 @@ function getSectors(){
     $.each(data, function(index,value){
       categories.push(value.name)
     })
-    //console.log(categories);
   });
 }
 
@@ -183,13 +184,16 @@ function hide(o){
   $('#filterBtn').fadeIn();
   $('#bottomBtns').fadeIn();
   $('.defaultLogo').fadeIn();
+  $('#zoom').fadeIn();
 }
 
 function show(o){
   $(o).fadeIn();
-  var calc = (($(window).height() - $(o+" .wrapper").height())/2)-30;
+  mar = (o=='#filterCover') ? 150 : 30;
+  var calc = (($(window).height() - $(o+" .wrapper").height())/2)-mar;
   $(o+" .wrapper").css('margin-top',calc)
   $('#filterBtn').fadeOut();
   $('#bottomBtns').fadeOut();
   $('.defaultLogo').fadeOut();
+  $('#zoom').fadeOut();
 }
