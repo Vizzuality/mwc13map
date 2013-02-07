@@ -173,7 +173,7 @@ function filterMap(s){
     q = "SELECT c.* FROM mwc_companies as c INNER JOIN mwc_companies_sectors as cs ON c.cartodb_id=cs.company_id WHERE cs.sector_id = "+s.value;
   }
   layer.setQuery(q);
-  $('#filterText').text("Filter companies ("+s.label +"|| "+s.num+")");
+  $('#filterText > p').text(s.label +" companies ("+s.num+")");
   hide($('#filterCover'));
 }
 

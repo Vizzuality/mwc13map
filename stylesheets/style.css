@@ -115,6 +115,18 @@ body {
   display: none;
 }
 
+#filterText{
+  position: absolute;
+  right: 200px;
+  bottom: 38px;
+  z-index: 2;
+  text-align: left;
+  font-family: Helvetica, Arial, Sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: #666;
+}
+
 #bottomBtns a, #bottomBtns a:visited{
   font-family: Helvetica, Arial, Sans-serif;
   font-size: 13px;
