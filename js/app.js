@@ -4,7 +4,7 @@ var categories = [{label:"All",value:0,num:1736}];
 var layer;
 var query;
 var mar;
-var sectors={};
+var sectors={0:{num_companies:1736,secname:"All",fullname:"All"}};
 
 init();
 getSectors();
