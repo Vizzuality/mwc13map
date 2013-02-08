@@ -166,6 +166,7 @@ function initAutocomplete() {
 
 function getSectors(){
   $.ajax({
+    crossDomain:true,
     url: "http://saleiva.cartodb.com/api/v2/sql?q="+escape("SELECT * FROM sectors ORDER BY num_companies DESC")
   }).done(function(data) {
     data = data.rows;
