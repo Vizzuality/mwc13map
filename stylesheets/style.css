@@ -233,6 +233,33 @@ body {
   cursor:pointer;
 }
 
+
+
+
+
+
+
+.sectorSelec {
+  font:bold 49px Helvetica,Arial, Sans-serif;
+  letter-spacing: -1px;
+  color:#FF4C4C;
+  width: 566px;
+  background: none;
+  cursor:pointer;
+  border: none;
+  margin: -40px 0px 0px 374px;
+  
+}
+
+
+
+
+
+
+
+
+
+
 span.ui-helper-hidden-accessible {
   display:none!important;
 }

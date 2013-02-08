@@ -4,6 +4,7 @@ var categories = [{label:"All",value:0,num:1736}];
 var layer;
 var query;
 var mar;
+var sectors={};
 
 init();
 getSectors();
@@ -106,14 +107,14 @@ function init(){
     hide(this)
   })
   $('#filterCover').bind('click',function(e){
-    if (!$(e.target).is("a,input"))
+    if (!$(e.target).is("a,input,option"))
       hide(this)
   })
   $('#filterBtn a').bind('click',function(){
     show("#filterCover");
-    $("#filterCover input")
+    /*$("#filterCover input")
       .focus()
-      .autocomplete("search","")
+      .autocomplete("search","")*/
   })
   $('.defaultLogo').bind('click',function(){
     show("#initialCover");
@@ -121,6 +122,9 @@ function init(){
   $('#bottomBtns .downloadBtn').bind('click',function(){
     getDownload();
   })
+  
+  
+  $('#sectorsSelector').change(selectionChanged);
 
   initAutocomplete(); 
 
@@ -139,7 +143,8 @@ function init(){
 }
 
 function initAutocomplete() {
-  var $input = $("#filterCover").find('input[type="text"]');
+  
+  /*var $input = $("#filterCover").find('input[type="text"]');
   $input.autocomplete({
     source: categories,
     minLength: 0,
@@ -155,6 +160,7 @@ function initAutocomplete() {
       },10)
     }
   }); 
+  */
 }
 
 function getSectors(){
@@ -163,9 +169,25 @@ function getSectors(){
   }).done(function(data) {
     data = data.rows;
     $.each(data, function(index,value){
-      categories.push({label:value.sector,value:value.cartodb_id,num:value.num_companies})
+      categories.push({label:value.sector,value:value.cartodb_id,num:value.num_companies});
+      var secname=value.sector;
+      if (value.sector.length>21) {
+        secname = $.trim(value.sector).substring(0,21).trim(this)+"...";
+      }
+      $("#sectorsSelector").append("<option data='"+value.num_companies+"' value='"+value.cartodb_id+"'>"+secname+"</option>");
+      
+      sectors[value.cartodb_id]={num_companies:value.num_companies,secname:secname,fullname:value.sector };
     })
   });
+}
+
+function selectionChanged(e) {
+  filterMap({
+    value:$('#sectorsSelector').val(),
+    label:sectors[$('#sectorsSelector').val()].fullname,
+    num: sectors[$('#sectorsSelector').val()].num_companies
+  });
+
 }
 
 function filterMap(s){
