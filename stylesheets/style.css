@@ -168,7 +168,7 @@ body {
 #filterCover .wrapper .content{
   position:relative;
   font-family: Helvetica, Arial, Sans-serif;
-  font-size: 49px;
+  font-size: 47px;
   font-weight: bold;
   letter-spacing: -1px;
   color: #333;
@@ -177,7 +177,7 @@ body {
 
 #filterCover h3{
   font-family: Helvetica, Arial, Sans-serif;
-  font-size: 49px;
+  font-size: 47px;
   font-weight: bold;
   letter-spacing: -1px;
   color:#999;
@@ -199,7 +199,7 @@ body {
   top:58px;
   width:570px;
   padding:0;
-  font:bold 49px Helvetica,Arial, Sans-serif;
+  font:bold 47px Helvetica,Arial, Sans-serif;
   letter-spacing: -1px;
   border:none;
   color:#333;
@@ -236,19 +236,19 @@ body {
 
 
 
-
-
-
-
 .sectorSelec {
-  font:bold 49px Helvetica,Arial, Sans-serif;
+  position: absolute;
+  z-index: 4;
+  top: 0px;
+  left: 500px;
+  font:bold 47px Helvetica,Arial, Sans-serif;
   letter-spacing: -1px;
   color:#FF4C4C;
   width: 626px;
+  bottom: 0px;
   background: none;
   cursor:pointer;
   border: none;
-  margin: -110px 0px 0px 374px;
   outline:none;
   
 }
