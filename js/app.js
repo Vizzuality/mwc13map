@@ -172,7 +172,7 @@ function getSectors(){
       categories.push({label:value.sector,value:value.cartodb_id,num:value.num_companies});
       var secname=value.sector;
       if (value.sector.length>21) {
-        secname = $.trim(value.sector).substring(0,21).trim(this)+"...";
+        secname = $.trim(value.sector).substring(0,24).trim(this)+"...";
       }
       $("#sectorsSelector").append("<option data='"+value.num_companies+"' value='"+value.cartodb_id+"'>"+secname+"</option>");
       

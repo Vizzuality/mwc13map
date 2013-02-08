@@ -39,6 +39,7 @@ body {
   margin: 100px auto 0 auto;
   display: block;
   width: 1000px;
+  height: 200px;
   padding: 0;
 }
 
@@ -243,11 +244,12 @@ body {
   font:bold 49px Helvetica,Arial, Sans-serif;
   letter-spacing: -1px;
   color:#FF4C4C;
-  width: 566px;
+  width: 626px;
   background: none;
   cursor:pointer;
   border: none;
   margin: -110px 0px 0px 374px;
+  outline:none;
   
 }
 
