@@ -91,7 +91,7 @@ function init(){
     "url": "http://saleiva.cartodb.com/tables/19287",
     "map_provider": "leaflet",
     "center": "[41.89019212449888, -8.26171875]",
-    "zoom": 2
+    "zoom": 3
   }
   
   )
@@ -131,14 +131,15 @@ function init(){
   $(window).resize(function(){
     var pre;
     if($("#filterCover").is(":visible")){
-      pre = "#filterCover";
+      // pre = "#filterCover";
+      $('.sectorSelec').css('left',($(window).width() /2)-144);
     }else if($("#initialCover").is(":visible")){
       pre = "#initialCover";
+      var calc = (($(this).height() - $(pre+" .wrapper").height())/2)-mar;
+      $(pre+" .wrapper").css('margin-top',calc)
     }else{
       return;
     }
-    var calc = (($(this).height() - $(pre+" .wrapper").height())/2)-mar;
-    $(pre+" .wrapper").css('margin-top',calc)
   });
 }
 
@@ -218,8 +219,9 @@ function hide(o){
 
 function show(o){
   $(o).fadeIn();
-  mar = (o=='#filterCover') ? 150 : 30;
+  mar = (o=='#filterCover') ? 202 : 30;
   var calc = (($(window).height() - $(o+" .wrapper").height())/2)-mar;
+  $('.sectorSelec').css('left',($(window).width() /2)-144);
   $(o+" .wrapper").css('margin-top',calc)
   $('#filterBtn').fadeOut();
   $('#bottomBtns').fadeOut();
